@@ -110,7 +110,7 @@ public class EntityUtil implements IEntityUtil {
 
             try {
 
-                ((CraftWorld) Level).getHandle().entityManager.addNewEntity(Entity);
+                //((CraftWorld) Level).getHandle().entityManager.addNewEntity(Entity);
                 return true;
             } catch (Throwable ignored) { }
         }

@@ -54,7 +54,7 @@ public class GPoseSeat implements IGPoseSeat {
     protected ClientboundBlockUpdatePacket setBedPacket;
     protected ClientboundPlayerInfoPacket addNpcInfoPacket;
     protected ClientboundPlayerInfoPacket removeNpcInfoPacket;
-    protected ClientboundRemoveEntityPacket removeNpcPacket;
+    protected ClientboundRemoveEntitiesPacket removeNpcPacket;
     protected ClientboundAddPlayerPacket createNpcPacket;
     protected ClientboundSetEntityDataPacket metaNpcPacket;
     protected ClientboundTeleportEntityPacket teleportNpcPacket;
@@ -93,7 +93,7 @@ public class GPoseSeat implements IGPoseSeat {
         if(pose == org.bukkit.entity.Pose.SLEEPING) setBedPacket = new ClientboundBlockUpdatePacket(bedPos, Blocks.WHITE_BED.defaultBlockState().setValue(BedBlock.FACING, direction.getOpposite()).setValue(BedBlock.PART, BedPart.HEAD));
         addNpcInfoPacket = new ClientboundPlayerInfoPacket(ClientboundPlayerInfoPacket.Action.ADD_PLAYER, playerNpc);
         removeNpcInfoPacket = new ClientboundPlayerInfoPacket(ClientboundPlayerInfoPacket.Action.REMOVE_PLAYER, playerNpc);
-        removeNpcPacket = new ClientboundRemoveEntityPacket(playerNpc.getId());
+        removeNpcPacket = new ClientboundRemoveEntitiesPacket(playerNpc.getId());
         createNpcPacket = new ClientboundAddPlayerPacket(playerNpc);
         if(pose == org.bukkit.entity.Pose.SLEEPING) teleportNpcPacket = new ClientboundTeleportEntityPacket(playerNpc);
         if(pose == org.bukkit.entity.Pose.SPIN_ATTACK) rotateNpcPacket = new ClientboundMoveEntityPacket.PosRot(playerNpc.getId(), (short) 0, (short) 0, (short) 0, (byte) 0, getFixedRotation(-90f), true);
